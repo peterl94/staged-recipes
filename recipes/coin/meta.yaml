@@ -33,8 +33,8 @@ requirements:
 
 
 test:
-  files:
-    - test.sh            # [unix]
+  commands:
+    - bash test.sh       # [unix]
 
 about:
   home: https://bitbucket.org/Coin3D/coin/wiki/Home
