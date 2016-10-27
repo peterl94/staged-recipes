@@ -16,9 +16,6 @@ build:
   number: 0
   skip: true             # [win and not py35]
 
-  features:
-    - occt7.0.0
-
   track_features:
     - vc14               # [win and py35]
 
@@ -33,8 +30,11 @@ requirements:
 
 
 test:
+  files:
+    - test.cpp
   commands:
-    - bash test.sh       # [unix]
+    - g++ -o test test.cpp -lCoin -L${PREFIX}lib/ -I${PREFIX}/include/    # [unix]
+    - ./test                                                              # [unix]
 
 about:
   home: https://bitbucket.org/Coin3D/coin/wiki/Home

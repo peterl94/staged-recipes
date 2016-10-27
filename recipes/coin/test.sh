@@ -1,2 +1,3 @@
-gcc -o test test.cpp -lCoin -L${PREFIX}lib/ -I${PREFIX}/include/
+cd "$(dirname "$0")"
+g++ -o test test.cpp -lCoin -L${PREFIX}lib/ -I${PREFIX}/include/
 ./test
