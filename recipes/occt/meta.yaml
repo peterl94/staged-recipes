@@ -9,38 +9,39 @@ source:
 
 build:
   number: 0
-  skip: true             # [win and not py35]
+  skip: true                              # [win and not py35]
 
   features:
     - occt7.0.0
+    - vc14                                # [win and py35]
 
   track_features:
-    - vc14               # [win and py35]
+    - vc14                                # [win and py35]
     - occt7.0.0
 
 requirements:
   build:
-    - cmake              # [unix]
-    - ninja              # [win]
-    - python             # [win]
-    - toolchain          # [osx]
+    - python                              # [win]
+    - cmake                               # [unix]
+    - ninja                               # [win]
+    - toolchain                           # [osx]
     - freetype 2.6.*
     - tk 8.5.*
-    - freeimage          # [unix]
-    - tbb                # [unix]
+    - freeimage                           # [unix]
+    - tbb                                 # [unix]
   run:
     - freetype 2.6.*
     - tk 8.5.*
-    - freeimage          # [unix]
-    - tbb                # [unix]
+    - freeimage                           # [unix]
+    - tbb                                 # [unix]
 
 test:
   requires:
   - python {{ environ['PY_VER'] + '*' }}  # [win]
   commands:
-    - which draw.sh      # [unix]
-    - which DRAWEXE      # [unix]
-    - where DRAWEXE.exe  # [win]
+    - which draw.sh                       # [unix]
+    - which DRAWEXE                       # [unix]
+    - where /r C:\ DRAWEXE.exe            # [win]
 
 about:
   home: https://www.opencascade.com/
@@ -57,3 +58,4 @@ about:
 extra:
   recipe-maintainers:
     - looooo
+
