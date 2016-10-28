@@ -1,0 +1,53 @@
+package:
+  name: tspline
+  version: 1.0.0
+
+source:
+  fn: tspline.tar.gz
+  url: https://github.com/GrapeTec/T-SPLINE/archive/6bd630b4524caffa9ec400dc5417160da469747e.tar.gz
+  sha256: 65a08f90426e592152bad11a81e35ce3a3b3f471a6615bf635af175dfae86fc9
+  patches:
+    - py3.patch
+
+build:
+  number: 0
+  skip: true                              # [win and not py35]
+
+  features:
+    - vc14                                # [win and py35]
+
+  track_features:
+    - vc14                                # [win and py35]
+
+requirements:
+  build:
+    - python
+    - cmake                               # [unix]
+    - ninja                               # [win]
+    - toolchain
+    - mpich
+    - pybind11
+  run:
+    - mpich
+
+test:
+  requires:
+  - python {{ environ['PY_VER'] + '*' }}  # [win]
+  imports:
+    - tspline
+
+about:
+  home: https://github.com/GrapeTec/T-SPLINE/archive/6bd630b4524caffa9ec400dc5417160da469747e.tar.gz
+  license_family: LGPL
+  license: LGPL-3
+  license_file: LICENSE
+  summary: T-SPLINE -- A T-spline object oriented package in C++ Copyright (C) 2015- Wenlei Xiao
+  description: The T-SPLINE Library is an OPEN SOURCE, EASY TO UNDERSTAND,
+               EASY TO COMPILE, and EASY TO USE C++ package for T-spline.
+  doc_url: https://github.com/GrapeTec/T-SPLINE
+  dev_url: https://github.com/GrapeTec/T-SPLINE
+
+extra:
+  recipe-maintainers:
+    - looooo
+

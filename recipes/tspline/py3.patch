@@ -1,0 +1,21 @@
+From c566a60f5b4f4cdd12d08bae73f4e7fa95d716bc Mon Sep 17 00:00:00 2001
+From: looooo <sppedflyer@gmail.com>
+Date: Fri, 28 Oct 2016 23:58:12 +0200
+Subject: [PATCH] python3 fix
+
+---
+ python/__init__.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/python/__init__.py b/python/__init__.py
+index 9da36a3..2aba269 100644
+--- a/python/__init__.py
++++ b/python/__init__.py
+@@ -1 +1 @@
+-from _tspline import *
+\ No newline at end of file
++from ._tspline import *
+\ No newline at end of file
+-- 
+2.7.4
+
