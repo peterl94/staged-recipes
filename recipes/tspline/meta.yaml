@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true                              # [win and not py35]
+  skip: true                              # [not py35]
 
   features:
     - vc14                                # [win and py35]
@@ -25,10 +25,10 @@ requirements:
     - cmake                               # [unix]
     - ninja                               # [win]
     - toolchain
-    - mpich
+    - mpich                               # [unix]
     - pybind11
   run:
-    - mpich
+    - mpich                               # [unix]
 
 test:
   requires:
