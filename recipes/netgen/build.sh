@@ -1,0 +1,26 @@
+echo "-------------------CUSTOM VARIABLES-------------"
+export NETGENDIR=$PREFIX/lib/netgen
+echo "set NETGENDIR to: $NETGENDIR"
+
+export PYTHONPATH=$SP_DIR
+echo "set PYTHONPATH to: $PYTHONPATH"
+echo "------------------------------------------------"
+
+mkdir build
+cd build 
+
+cmake -DCMAKE_BUILD_TYPE=Release \
+	  -DCMAKE_INSTALL_PREFIX=$PREFIX \
+      -DINSTALL_DIR=$PREFIX \
+      -DUSE_OCC=ON \
+      -DUSE_PYTHON=ON \
+      -DUSE_GUI=ON \
+      -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
+      -OCC_LIBRARY_DIR=$PREFIX/lib \
+      ..
+make -j2 2>&1 | tee output.txt
+make install 
+
+mkdir ${PREFIX}/include/netgen
+
+rsync -avm --include='*.h*' -f 'hide,! */' . ${PREFIX}/include/netgen

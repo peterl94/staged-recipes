@@ -1,0 +1,49 @@
+package:
+  name: netgen
+  version: 6.0.0
+
+source:
+  fn: netgen.tar.gz
+  url: https://github.com/looooo/netgen/archive/6.0.0-conda.tar.gz
+  sha256: 98238391f7bf4f8a0dceb64a446468e0c98a1f62d8dcb8f6312672f64596fd17
+
+build:
+  number: 0
+  skip: true  # [win and not py35]
+
+  track_features:
+    - vc14  # [win and py35]
+    - occt7.0.0
+
+requirements:
+  build:
+    - cmake  # [unix]
+    - ninja  # [win]
+    - python  # [win]
+    - tk 8.5.*
+    - occt
+    - boost 1.61.*
+    - toolchain  # [osx]
+  run:
+    - tk 8.5.*
+    - boost 1.61.*
+test:
+  files:
+  commands:
+
+about:
+  home: https://sourceforge.net/projects/netgen-mesher/
+  license: LGPL
+  license_family: LGPL
+  summary: this is netgen
+  description: NETGEN is an automatic 3d tetrahedral mesh generator.
+               It accepts input from constructive solid geometry (CSG) or boundary representation (BRep) from
+               STL file format. The connection to a geometry kernel allows the handling of IGES and STEP files.
+               NETGEN contains modules for mesh optimization and hierarchical mesh refinement.
+               Netgen is open source based on the LGPL license. It is available for Unix/Linux and Windows. 
+  doc_url: http://www.hpfem.jku.at/netgen/
+  dev_url: https://sourceforge.net/projects/netgen-mesher/
+
+extra:
+  recipe-maintainers:
+    - looooo
