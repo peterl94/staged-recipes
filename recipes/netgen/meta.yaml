@@ -4,8 +4,8 @@ package:
 
 source:
   fn: netgen.tar.gz
-  url: https://github.com/looooo/netgen/archive/6.0.0-conda.tar.gz
-  sha256: 98238391f7bf4f8a0dceb64a446468e0c98a1f62d8dcb8f6312672f64596fd17
+  url: https://github.com/looooo/netgen/archive/6.0.0-conda-pybind.tar.gz
+  sha256: 6d8ee2ea3d744a761b838a2d6a691f971de6ef3d1f8f8c1c26de4c39a8b7c809
 
 build:
   number: 0
@@ -22,11 +22,11 @@ requirements:
     - python  # [win]
     - tk 8.5.*
     - occt
-    - boost 1.61.*
+    - pybind11
     - toolchain  # [osx]
   run:
     - tk 8.5.*
-    - boost 1.61.*
+
 test:
   files:
   commands:

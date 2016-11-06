@@ -9,7 +9,8 @@ cmake .. -G "Ninja" ^
     -DUSE_PYTHON=ON ^
     -DUSE_GUI=ON ^
     -DOCC_INCLUDE_DIR:FILEPATH="%LIBRARY_INC%\opencascade" ^
-    -OCC_LIBRARY_DIR:FILEPATH="%LIBRARY_PREFIX%"
+    -DOCC_LIBRARY_DIR:FILEPATH="%LIBRARY_PREFIX%" ^
+    -DPYBIND_INCLUDE_DIR:FILEPATH="%LIBRARY_INC%\pybind11"
      
 if errorlevel 1 exit 1
 

@@ -16,7 +16,8 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DUSE_PYTHON=ON \
       -DUSE_GUI=ON \
       -DOCC_INCLUDE_DIR=$PREFIX/include/opencascade \
-      -OCC_LIBRARY_DIR=$PREFIX/lib \
+      -DOCC_LIBRARY_DIR=$PREFIX/lib \
+      -DPYBIND_INCLUDE_DIR=$PREFIX/include/pybind11 \
       ..
 make -j2 2>&1 | tee output.txt
 make install 
