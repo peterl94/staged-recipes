@@ -1,0 +1,44 @@
+package:
+  name: pyinventor
+  version: 1.0
+
+source:
+  fn: pyinventor.tar.gz
+  url: https://github.com/TheHubbit/PyInventor/tarball/master
+  sha256: 0f1865785a688755d1fef8a66baea8a5016601d5d2acdab5f93db75456a11ad2
+
+  patches:
+
+build:
+  number: 0
+  skip: true  # [win and not py35]
+
+  track_features:
+    - vc14  # [win and py35]
+
+requirements:
+  build:
+    - python
+    - osg
+  run:
+    - boost 1.61.*
+    - osg
+
+
+test:
+
+about:
+  home: https://thehubbit.github.io/PyInventor/
+  license_family: "?"
+  license: "?"
+  summary: this is PyInventor
+  description:  PyInventor provides a Python binding for the Open Inventor 3D graphics toolkit,
+                which is an object oriented, high level programming layer for OpenGL. The Open Inventor
+                toolkit is considerably easier to learn and use than OpenGL, hence the motto "3D programming
+                for humans".
+  doc_url: https://thehubbit.github.io/PyInventor/
+  dev_url: https://github.com/TheHubbit/PyInventor
+
+extra:
+  recipe-maintainers:
+    - looooo
